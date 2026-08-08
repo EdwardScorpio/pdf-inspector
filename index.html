@@ -298,6 +298,7 @@
   }
 
   function buildActions(f){
+    f._actsBuilt = true;
     f._actions = [];
     var dl = document.createElement("button");
     dl.className = "btn mini";
