@@ -43,9 +43,7 @@
     font:13px/1 "Trebuchet MS",sans-serif;color:var(--dim);}
   #status{flex:1;min-width:200px;font:13px/1.5 "Trebuchet MS",sans-serif;}
   #status.err{color:var(--warn);}
-  label.check{display:flex;gap:7px;align-items:center;font:13px/1 "Trebuchet MS",sans-serif;color:var(--dim);cursor:pointer;user-select:none;}
-  input[type=checkbox]{accent-color:var(--accent);width:15px;height:15px;margin:0;}
-  #list{display:grid;gap:10px;}
+#list{display:grid;gap:10px;}
   .file{display:flex;align-items:center;gap:12px;background:var(--card);
     border:1px solid var(--line);border-radius:12px;padding:12px 14px;
     box-shadow:var(--shadow);}
@@ -105,7 +103,6 @@
 
   <div class="meta-bar">
     <div id="status"></div>
-    <label class="check"><input type="checkbox" id="compact"> компактный вывод</label>
   </div>
 
   <div id="list"></div>
@@ -127,8 +124,7 @@
 
   var drop = document.getElementById("drop");
   var fileInput = document.getElementById("fileInput");
-  var compactCb = document.getElementById("compact");
-  var list = document.getElementById("list");
+var list = document.getElementById("list");
 
   var items = [];
   var files = [];
@@ -249,7 +245,7 @@
     status("Конвертирую: " + f.name);
     f.arrayBuffer().then(function (buf) {
       var t0 = Date.now();
-      worker.postMessage({ type: "convert", id: id, buffer: buf, compact: compactCb.checked }, [buf]);
+      worker.postMessage({ type: "convert", id: id, buffer: buf }, [buf]);
       pending[id] = { file: f, t0: t0 };
     }).catch(function (e) {
       f._status = fmtSize(f.size) + " · ошибка чтения";
