@@ -1,4 +1,4 @@
-var CACHE = 'pdf2md-pi-v1';
+var CACHE = 'pdf2md-pi-v2';
 var SHARE_CACHE = 'pdf2md-shared';
 var PRECACHE = ['/pdf-inspector/', '/pdf-inspector/worker.js', '/pdf-inspector/manifest.webmanifest', '/pdf-inspector/icon.svg'];
 
@@ -54,19 +54,19 @@ self.addEventListener('fetch', function (event) {
     return;
   }
 
+  if (event.request.method !== 'GET') return;
+
   event.respondWith(
-    caches.open(CACHE).then(function (cache) {
-      return cache.match(event.request).then(function (hit) {
-        if (hit) return hit;
-        return fetch(event.request).then(function (res) {
-          if (res && res.status === 200 && event.request.method === 'GET') {
-            cache.put(event.request, res.clone());
-          }
-          return res;
+    fetch(event.request).then(function (res) {
+      if (res && res.status === 200) {
+        var copy = res.clone();
+        caches.open(CACHE).then(function (cache) {
+          cache.put(event.request, copy);
         });
-      });
+      }
+      return res;
     }).catch(function () {
-      return fetch(event.request);
+      return caches.match(event.request);
     })
   );
 });
