@@ -52,8 +52,9 @@
   .file .meta{font:12px/1.5 "Trebuchet MS",sans-serif;color:var(--dim);margin-top:2px;}
   .file .meta .ok{color:var(--ok);}
   .file .meta .warn{color:var(--warn);}
-  .file .acts{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+  .file .acts{display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap;}
   .file .acts.hidden{display:none;}
+  .file .acts details{flex:1 1 100%;}
   .btn{
     font:700 13px/1 "Trebuchet MS",sans-serif;color:#fff;
     background:var(--accent);border:none;border-radius:8px;
@@ -80,7 +81,8 @@
     h1{font-size:25px;}
     .drop{padding:30px 16px;}
     .file{flex-wrap:wrap;}
-    .file .acts{width:100%;justify-content:flex-end;}
+    .file .acts{width:100%;justify-content:flex-start;}
+    .file .acts .btn.mini{flex:1 1 auto;}
   }
 </style>
 </head>
@@ -88,7 +90,6 @@
 <main>
   <div class="topbar">
     <div class="mark">PDF<span>&nbsp;→&nbsp;</span>MD</div>
-    <a class="author-link" href="https://github.com/EdwardScorpio" rel="noopener">by Edward Scorpio</a>
   </div>
 
   <h1>PDF → Markdown</h1>
