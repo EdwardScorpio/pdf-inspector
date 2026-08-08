@@ -18,70 +18,71 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{background:var(--paper);color:var(--ink);
-    font:17px/1.6 Georgia,"Times New Roman",serif;
+    font:16px/1.55 Georgia,"Times New Roman",serif;
     -webkit-font-smoothing:antialiased;}
   ::selection{background:#f3e3bd;}
   a{color:var(--accent);text-decoration:none;border-bottom:1px solid #d9c49a;}
   a:hover{border-bottom-color:var(--accent);}
-  main{max-width:680px;margin:0 auto;padding:56px 20px 72px;}
-  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;}
+  main{max-width:640px;margin:0 auto;padding:34px 18px 56px;}
+  .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:26px;}
   .mark{font:700 13px/1 "Trebuchet MS",sans-serif;letter-spacing:4px;color:var(--accent);text-transform:uppercase;}
   .mark span{color:var(--dim);letter-spacing:2px;}
   .author-link{font:13px/1 "Trebuchet MS",sans-serif;color:var(--dim);border-bottom:1px solid var(--line);}
   .author-link:hover{border-bottom-color:var(--accent);color:var(--accent);}
-  header{margin-bottom:34px;}
-  h1{font-size:42px;line-height:1.15;margin:0 0 10px;font-weight:400;letter-spacing:-.5px;}
-  .tag{font:15px/1.6 "Trebuchet MS",sans-serif;color:var(--dim);margin:0;}
+  h1{font-size:30px;line-height:1.2;margin:0 0 4px;font-weight:400;letter-spacing:-.5px;}
+  .tag{font:13px/1.6 "Trebuchet MS",sans-serif;color:var(--dim);margin:0 0 20px;}
   .drop{border:2px dashed #cfc2a6;border-radius:16px;background:var(--card);
-    padding:52px 24px;text-align:center;color:var(--dim);cursor:pointer;
-    transition:border-color .15s,background .15s,transform .15s;
+    padding:38px 24px;text-align:center;color:var(--dim);cursor:pointer;
+    transition:border-color .15s,background .15s;
     box-shadow:var(--shadow);}
   .drop:hover,.drop.over{border-color:var(--accent);background:#fffdf4;}
-  .drop.over{transform:scale(1.01);}
-  .drop-icon{font-size:38px;line-height:1;margin-bottom:12px;color:#c9b88f;}
+  .drop-icon{font-size:30px;line-height:1;margin-bottom:8px;color:#c9b88f;}
   .drop b{color:var(--ink);font-weight:700;}
-  .hint{font:13px/1.6 "Trebuchet MS",sans-serif;color:#9a927f;margin-top:10px;}
-  .controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:22px;}
+  .hint{font:13px/1.6 "Trebuchet MS",sans-serif;color:#9a927f;margin-top:8px;}
+  .meta-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 16px;
+    font:13px/1 "Trebuchet MS",sans-serif;color:var(--dim);}
+  #status{flex:1;min-width:200px;font:13px/1.5 "Trebuchet MS",sans-serif;}
+  #status.err{color:var(--warn);}
+  label.check{display:flex;gap:7px;align-items:center;font:13px/1 "Trebuchet MS",sans-serif;color:var(--dim);cursor:pointer;user-select:none;}
+  input[type=checkbox]{accent-color:var(--accent);width:15px;height:15px;margin:0;}
+  #list{display:grid;gap:10px;}
+  .file{display:flex;align-items:center;gap:12px;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;padding:12px 14px;
+    box-shadow:var(--shadow);}
+  .file .info{flex:1;min-width:0;}
+  .file h3{margin:0;font-size:15px;font-weight:400;word-break:break-word;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .file .meta{font:12px/1.5 "Trebuchet MS",sans-serif;color:var(--dim);margin-top:2px;}
+  .file .meta .ok{color:var(--ok);}
+  .file .meta .warn{color:var(--warn);}
+  .file .acts{display:flex;gap:8px;align-items:center;flex-shrink:0;}
+  .file .acts.hidden{display:none;}
   .btn{
-    font:700 14px/1 "Trebuchet MS",sans-serif;color:#fff;
-    background:var(--accent);border:none;border-radius:10px;
-    padding:13px 24px;cursor:pointer;box-shadow:0 1px 3px rgba(120,90,40,.25);
+    font:700 13px/1 "Trebuchet MS",sans-serif;color:#fff;
+    background:var(--accent);border:none;border-radius:8px;
+    padding:10px 16px;cursor:pointer;
     transition:filter .15s,transform .1s;
   }
   .btn:hover{filter:brightness(1.06);}
   .btn:active{transform:translateY(1px);}
-  .btn:disabled{opacity:.45;cursor:not-allowed;}
-  .btn.ghost{background:transparent;color:var(--dim);box-shadow:none;border:1px solid var(--line);}
-  .btn.ghost:hover{background:#f4ecdc;filter:none;}
-  .btn.mini{padding:8px 14px;font-size:13px;border-radius:8px;}
-  label.check{display:flex;gap:8px;align-items:center;font:14px/1 "Trebuchet MS",sans-serif;color:var(--dim);cursor:pointer;user-select:none;}
-  input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px;margin:0;}
-  #status{margin-top:26px;font:14px/1.7 "Trebuchet MS",sans-serif;color:var(--dim);min-height:24px;}
-  #status .ln{white-space:pre-wrap;word-break:break-word;padding:2px 0;}
-  #status .ln.ok{color:var(--ok);}
-  #status .ln.err{color:var(--warn);}
-  #list{margin-top:26px;display:grid;gap:14px;}
-  .file{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent-soft);
-    border-radius:12px;padding:18px 20px;box-shadow:var(--shadow);}
-  .file.done{border-left-color:var(--ok);}
-  .file h3{margin:0 0 4px;font-size:19px;font-weight:400;word-break:break-word;}
-  .file .meta{font:13px/1.6 "Trebuchet MS",sans-serif;color:var(--dim);margin:0 0 12px;}
-  .file .meta .ok{color:var(--ok);}
-  .file .meta .warn{color:var(--warn);}
-  .file .acts{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-  .file details{margin-left:auto;}
-  .file summary{cursor:pointer;font:13px/1 "Trebuchet MS",sans-serif;color:var(--accent);border-bottom:1px solid #d9c49a;}
+  .btn.ghost{background:transparent;color:var(--dim);border:1px solid var(--line);}
+  .btn.ghost:hover{background:#f4ecdc;}
+  .btn.mini{padding:8px 12px;font-size:12px;}
+  .btn.del{background:none;border:none;color:#c9b88f;cursor:pointer;font:16px/1 sans-serif;padding:4px 6px;}
+  .btn.del:hover{color:var(--warn);}
+  .file details{margin:0;}
+  .file summary{cursor:pointer;font:12px/1 "Trebuchet MS",sans-serif;color:var(--accent);border-bottom:1px solid #d9c49a;}
   .file summary:hover{border-bottom-color:var(--accent);}
-  .file textarea{width:100%;min-height:200px;margin-top:12px;background:#faf7ef;color:#3c382f;
-    border:1px solid var(--line);border-radius:8px;padding:12px;font:13px/1.5 "Courier New",monospace;resize:vertical;white-space:pre;}
-  footer{margin-top:60px;text-align:center;font:13px/1.8 "Trebuchet MS",sans-serif;color:#9a927f;}
+  .file textarea{width:100%;min-height:160px;margin-top:10px;background:#faf7ef;color:#3c382f;
+    border:1px solid var(--line);border-radius:8px;padding:10px;font:12px/1.5 "Courier New",monospace;resize:vertical;white-space:pre;}
+  footer{margin-top:40px;text-align:center;font:12px/1.8 "Trebuchet MS",sans-serif;color:#9a927f;}
   .hidden{display:none;}
   *:focus-visible{outline:2px dotted var(--accent);outline-offset:2px;}
-  @media(max-width:560px){
-    main{padding:32px 16px 48px;}
-    h1{font-size:32px;}
-    .drop{padding:38px 16px;}
-    .topbar{flex-direction:column;gap:12px;margin-bottom:28px;}
+  @media(max-width:520px){
+    main{padding:24px 14px 40px;}
+    h1{font-size:25px;}
+    .drop{padding:30px 16px;}
+    .file{flex-wrap:wrap;}
+    .file .acts{width:100%;justify-content:flex-end;}
   }
 </style>
 </head>
@@ -92,30 +93,24 @@
     <a class="author-link" href="https://github.com/EdwardScorpio" rel="noopener">by Edward Scorpio</a>
   </div>
 
-  <header>
-    <h1>PDF → Markdown</h1>
-    <p class="tag">Бесплатно · без сервера · файлы не покидают ваше устройство</p>
-  </header>
+  <h1>PDF → Markdown</h1>
+  <p class="tag">Бесплатно · без сервера · файлы не покидают ваше устройство</p>
 
   <div class="drop" id="drop">
     <div class="drop-icon">&#8595;</div>
     <div>Перетащите PDF сюда или <b>выберите файл</b></div>
-    <div class="hint">можно сразу несколько</div>
+    <div class="hint">до 5 файлов за раз · конвертация начнётся сразу</div>
   </div>
   <input type="file" id="fileInput" accept="application/pdf,.pdf" multiple hidden>
 
-  <div class="controls">
-    <button class="btn" id="btn">Конвертировать</button>
-    <button class="btn ghost" id="clearBtn">Очистить</button>
+  <div class="meta-bar">
+    <div id="status"></div>
     <label class="check"><input type="checkbox" id="compact"> компактный вывод</label>
   </div>
-
-  <div id="status" role="log" aria-live="polite"></div>
 
   <div id="list"></div>
 
   <footer>
-    Работает прямо в браузере — загруженные PDF не передаются никуда.<br>
     На базе <a href="https://github.com/firecrawl/pdf-inspector" rel="noopener">pdf-inspector</a> (WebAssembly) ·
     автор <a href="https://github.com/EdwardScorpio" rel="noopener">Edward Scorpio</a>
   </footer>
@@ -124,21 +119,18 @@
 <script>
 (function(){
   var STATUS = document.getElementById("status");
-  function log(line, cls){
-    var el = document.createElement("div");
-    el.className = "ln " + (cls || "");
-    el.textContent = line;
-    STATUS.appendChild(el);
-    while (STATUS.childNodes.length > 40) STATUS.removeChild(STATUS.firstChild);
+  function status(text, isErr){
+    if (!text) { STATUS.textContent = ""; STATUS.className = ""; return; }
+    STATUS.textContent = text;
+    STATUS.className = isErr ? "err" : "";
   }
 
   var drop = document.getElementById("drop");
   var fileInput = document.getElementById("fileInput");
-  var btn = document.getElementById("btn");
-  var clearBtn = document.getElementById("clearBtn");
   var compactCb = document.getElementById("compact");
   var list = document.getElementById("list");
 
+  var items = [];
   var files = [];
   var seq = 0;
   var busy = false;
@@ -154,57 +146,90 @@
       worker = new Worker("/pdf-inspector/worker.js", { type: "module" });
     } catch (e) {
       workerError = "web worker не поддерживается: " + e;
-      log("! worker error: " + workerError, "err");
+      status("Ошибка: " + workerError, true);
       return;
     }
     worker.onmessage = function (ev) {
       var m = ev.data;
       if (m.type === "ready") {
         workerReady = true;
-        log("> конвертер загружен", "ok");
-        if (queueStart) pumpQueue();
+        pumpQueue();
       } else if (m.type === "error") {
         workerError = m.message;
-        log("! " + m.message, "err");
+        status("Ошибка: " + m.message, true);
       } else if (m.type === "done") {
         handleDone(m);
       }
     };
     worker.onerror = function (e) {
       workerError = (e && e.message) || "worker failed";
-      log("! " + workerError, "err");
+      status("Ошибка: " + workerError, true);
     };
-    log("> загружаю конвертер (wasm ~5 МБ)…");
+    status("Загружаю конвертер (~5 МБ)…");
   }
 
   function addFiles(listNew){
+    if (files.length >= 5) {
+      status("Можно не больше 5 файлов за раз", true);
+      return;
+    }
+    var added = 0;
     for (var i = 0; i < listNew.length; i++) {
       var f = listNew[i];
-      if (f.type !== "application/pdf" && !f.name.toLowerCase().endsWith(".pdf")) {
-        log("! пропущен (не PDF): " + f.name, "err");
-        continue;
+      if (files.length + added >= 5) {
+        status("Можно не больше 5 файлов за раз — лишние пропущены", true);
+        break;
       }
+      if (f.type !== "application/pdf" && !f.name.toLowerCase().endsWith(".pdf")) continue;
+      items.push(f);
       files.push(f);
+      added++;
     }
-    renderList();
-    log("> в очереди: " + files.length + " файл(ов)");
+    if (added > 0) {
+      renderList();
+      startWorker();
+      pumpQueue();
+    }
   }
 
   function renderList(){
     list.textContent = "";
-    files.forEach(function (f, idx) {
-      var box = document.createElement("div");
-      box.className = "file";
+    items.forEach(function (f) {
+      var row = document.createElement("div");
+      row.className = "file";
+
+      var info = document.createElement("div");
+      info.className = "info";
       var h = document.createElement("h3");
       h.textContent = f.name;
       var meta = document.createElement("p");
       meta.className = "meta";
-      meta.textContent = fmtSize(f.size) + " · ждёт очереди";
+      meta.textContent = f._status || fmtSize(f.size);
+      info.appendChild(h); info.appendChild(meta);
+
       var acts = document.createElement("div");
-      acts.className = "acts hidden";
-      box.appendChild(h); box.appendChild(meta); box.appendChild(acts);
-      list.appendChild(box);
-      f._row = box; f._meta = meta; f._acts = acts;
+      acts.className = "acts" + (f._actsBuilt ? "" : " hidden");
+
+      var del = document.createElement("button");
+      del.className = "btn del";
+      del.title = "Убрать из списка";
+      del.textContent = "×";
+      del.onclick = function () {
+        var i = items.indexOf(f);
+        if (i >= 0) items.splice(i, 1);
+        var j = files.indexOf(f);
+        if (j >= 0) files.splice(j, 1);
+        renderList();
+        pumpQueue();
+      };
+
+      row.appendChild(info); row.appendChild(acts); row.appendChild(del);
+      list.appendChild(row);
+      f._meta = meta; f._acts = acts;
+      if (f._actions) {
+        f._acts.textContent = "";
+        f._actions.forEach(function (el) { f._acts.appendChild(el); });
+      }
     });
   }
 
@@ -214,21 +239,21 @@
     return (n / 1048576).toFixed(2) + " МБ";
   }
 
-  var queueStart = false;
   function pumpQueue(){
     if (busy || !workerReady || files.length === 0) return;
     busy = true;
     var f = files.shift();
     var id = ++seq;
-    log("> конвертирую: " + f.name);
-    f._meta.textContent = fmtSize(f.size) + " · конвертирую…";
+    f._status = fmtSize(f.size) + " · конвертирую…";
+    f._meta.textContent = f._status;
+    status("Конвертирую: " + f.name);
     f.arrayBuffer().then(function (buf) {
       var t0 = Date.now();
       worker.postMessage({ type: "convert", id: id, buffer: buf, compact: compactCb.checked }, [buf]);
       pending[id] = { file: f, t0: t0 };
     }).catch(function (e) {
-      log("! ошибка чтения: " + f.name, "err");
-      f._meta.textContent = fmtSize(f.size) + " · ошибка чтения";
+      f._status = fmtSize(f.size) + " · ошибка чтения";
+      f._meta.textContent = f._status;
       busy = false;
       pumpQueue();
     });
@@ -243,8 +268,8 @@
     busy = false;
 
     if (m.error) {
-      log("! не удалось: " + f.name + " (" + m.error + ")", "err");
-      f._meta.textContent = fmtSize(f.size) + " · ошибка: " + m.error;
+      f._status = fmtSize(f.size) + " · ошибка: " + m.error;
+      renderList();
       pumpQueue();
       return;
     }
@@ -252,28 +277,26 @@
     var typeMap = { TextBased: "текстовый", Scanned: "скан", ImageBased: "изображение", Mixed: "смешанный" };
     var tl = typeMap[r.pdfType] || r.pdfType;
 
-    var parts = [];
-    parts.push("тип: " + tl + " (" + Math.round(r.confidence * 100) + "%)");
-    parts.push("стр: " + r.pageCount);
-    parts.push("время: " + ms + " мс");
-    var line = parts.join(" · ");
-
     if (r.markdown) {
-      log("> готово: " + f.name, "ok");
       f._markdown = r.markdown;
-      f._row.classList.add("done");
-      f._meta.innerHTML = fmtSize(f.size) + " · " + esc(line);
-      f._meta.classList.add("ok");
+      f._status = fmtSize(f.size) + " · " + tl + " · готово";
+      f._done = true;
       buildActions(f);
+      renderList();
     } else {
-      var why = "В этом PDF текст не извлечён";
+      var why = "текст не извлечён";
       if (r.pdfType === "Scanned" || r.pdfType === "ImageBased") {
-        why = "Похоже, это скан (фотографии страниц) — текст из таких файлов достать нельзя, нужна отдельная программа распознавания (OCR)";
+        why = "это скан (фотографии) — нужна отдельная программа распознавания текста (OCR)";
       }
-      log("! " + f.name + ": " + why, "err");
-      f._meta.innerHTML = fmtSize(f.size) + " · " + esc(line) + "<br><span class='warn'>" + esc(why) + "</span>";
+      f._status = fmtSize(f.size) + " · " + tl + " · " + why;
+      renderList();
     }
-    pumpQueue();
+
+    if (files.length === 0) {
+      status("");
+    } else {
+      pumpQueue();
+    }
   }
 
   function esc(s){
@@ -283,8 +306,7 @@
   }
 
   function buildActions(f){
-    f._acts.classList.remove("hidden");
-    f._acts.textContent = "";
+    f._actions = [];
     var dl = document.createElement("button");
     dl.className = "btn mini";
     dl.textContent = "Скачать .md";
@@ -295,12 +317,12 @@
     cp.onclick = function () { copyMd(f, cp); };
     var dt = document.createElement("details");
     var sm = document.createElement("summary");
-    sm.textContent = "показать markdown";
+    sm.textContent = "показать";
     var ta = document.createElement("textarea");
     ta.value = f._markdown;
     ta.readOnly = true;
     dt.appendChild(sm); dt.appendChild(ta);
-    f._acts.appendChild(dl); f._acts.appendChild(cp); f._acts.appendChild(dt);
+    f._actions.push(dl); f._actions.push(cp); f._actions.push(dt);
   }
 
   function baseName(name){
@@ -348,48 +370,25 @@
     fileInput.value = "";
   });
 
-  btn.addEventListener("click", function () {
-    startWorker();
-    if (files.length === 0) { log("! сначала выберите PDF", "err"); return; }
-    if (!workerReady) { log("! конвертер ещё грузится", "err"); return; }
-    queueStart = true;
-    pumpQueue();
-  });
-
-  clearBtn.addEventListener("click", function () {
-    files.length = 0;
-    list.textContent = "";
-    log("> очищено");
-  });
-
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/pdf-inspector/sw.js").then(function () {
-      log("> офлайн-режим готов");
-    }).catch(function (e) {
-      log("! sw: " + e, "err");
-    });
+    navigator.serviceWorker.register("/pdf-inspector/sw.js").catch(function () {});
   }
 
   var q = new URLSearchParams(location.search);
   if (q.get("shared") === "1") {
-    log("> получен файл из «Поделиться»");
     fetch("/pdf-inspector/shared-file").then(function (r) {
       if (!r.ok) throw new Error("no shared file");
       return r.blob();
     }).then(function (blob) {
       var f = new File([blob], "shared.pdf", { type: "application/pdf" });
-      startWorker();
       addFiles([f]);
-      btn.click();
     }).catch(function (e) {
-      log("! share: " + e, "err");
+      status("Не удалось получить файл из «Поделиться»", true);
     });
   }
   if (q.get("shared") === "error") {
-    log("! не удалось получить файл из «Поделиться»", "err");
+    status("Не удалось получить файл из «Поделиться»", true);
   }
-
-  log("> привет. перетащите PDF — и всё");
 })();
 </script>
 </body>
