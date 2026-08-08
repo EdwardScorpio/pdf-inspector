@@ -1,0 +1,25 @@
+{
+  "name": "PDF → Markdown",
+  "short_name": "PDF→MD",
+  "description": "Конвертация PDF в Markdown прямо в браузере, без сервера",
+  "id": "/pdf-inspector/",
+  "start_url": "/pdf-inspector/",
+  "scope": "/pdf-inspector/",
+  "display": "standalone",
+  "background_color": "#f6f1e7",
+  "theme_color": "#f6f1e7",
+  "lang": "ru",
+  "icons": [
+    { "src": "/pdf-inspector/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "share_target": {
+    "action": "/pdf-inspector/",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "files": [ { "name": "file", "accept": [ "application/pdf", ".pdf" ] } ]
+    }
+  }
+}
