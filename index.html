@@ -218,7 +218,7 @@
   function pumpQueue(){
     if (busy || !workerReady || files.length === 0) return;
     busy = true;
-    var f = files[0];
+    var f = files.shift();
     var id = ++seq;
     log("> конвертирую: " + f.name);
     f._meta.textContent = fmtSize(f.size) + " · конвертирую…";
